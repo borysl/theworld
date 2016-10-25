@@ -27,6 +27,7 @@ namespace TheWorld
             //{
             //    app.UseDeveloperExceptionPage();
             //}
+            app.UseDefaultFiles();
             app.UseStaticFiles();
         }
     }
