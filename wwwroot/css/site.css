@@ -25,6 +25,9 @@ input[type=text], input[type=password], textarea {
     background-color: #222;
     color: #eee;
     padding: 8px 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .headshot {
