@@ -21,10 +21,13 @@ input[type=text], input[type=password], textarea {
 #footer {
     background-color: #222;
     color: #eee;
+    padding: 8px 5px;
 }
 
 .headshot {
     max-width: 50px;
+    border: 1px solid #222;
+    padding: 3px;
 }
 
 .menu {
