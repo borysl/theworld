@@ -22,3 +22,7 @@ input[type=text], input[type=password], textarea {
     background-color: #222;
     color: #eee;
 }
+
+#sidebar img {
+    max-width: 50px;
+}
