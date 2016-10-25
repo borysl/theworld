@@ -4,12 +4,12 @@
     var ele = $("#username");
     ele.text("Borys Lebeda");
 
-    var main = document.getElementById("main");
-    main.onmouseenter = function () {
-        main.style.background = "#888";
-    };
+    var main = $("#main");
+    main.on("mouseenter", function () {
+        $(this).css("background-color", "#888");
+    });
 
-    main.onmouseleave = function () {
-        main.style.background = "";
-    };
+    main.on("mouseleave", function () {
+        $(this).css("background-color", "");
+    });
 })();
