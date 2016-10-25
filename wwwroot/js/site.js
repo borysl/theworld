@@ -1,8 +1,8 @@
 ﻿// site.js
 
 (function () {
-    var ele = document.getElementById("username");
-    ele.innerHTML = "Borys Lebeda";
+    var ele = $("#username");
+    ele.text("Borys Lebeda");
 
     var main = document.getElementById("main");
     main.onmouseenter = function () {
