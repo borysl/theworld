@@ -16,6 +16,8 @@ input[type=text], input[type=password], textarea {
 
 #main {
     background-color: #eee;
+    padding: 4px;
+    margin: 0;
 }
 
 #footer {
