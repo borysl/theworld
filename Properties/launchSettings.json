@@ -13,6 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "Cloud": "Staging",
+        "MailSettings__ToAddress": "blebeda@gmail.com",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
