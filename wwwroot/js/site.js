@@ -13,12 +13,6 @@
         $(this).css("background-color", "");
     });
 
-    var menuItems = $("ul.menu li a");
-    menuItems.on("click", function () {
-        var $me = $(this);
-        alert("Clicked " + $me.text());
-    });
-
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
     $("#sidebarToggle").on("click", function () {
