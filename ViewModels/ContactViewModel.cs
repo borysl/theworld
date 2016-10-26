@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 namespace TheWorld.ViewModels
 {
+    [DebuggerDisplay("{Name}({Email}) sends message {Message}")]
     public class ContactViewModel
     {
         [Required]
