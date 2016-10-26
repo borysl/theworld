@@ -30,14 +30,7 @@ namespace TheWorld
             //}
             app.UseStaticFiles();
 
-            app.UseMvc(_ =>
-            {
-                _.MapRoute(
-                    name: "Default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "App", action = "Index" }
-                );
-            });
+            app.UseMvcWithDefaultRoute(); // Defines route ‘{controller=Home}/{action=Index}/{id?}’.
         }
     }
 }
