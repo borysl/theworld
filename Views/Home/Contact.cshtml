@@ -9,6 +9,7 @@
 
 <h2>Contact me</h2>
 <form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
     <label asp-for="Name">Name</label>
     <input asp-for="Name"/>
     <span asp-validation-for="Name"></span>
@@ -18,5 +19,6 @@
     <label asp-for="Message">Message</label>
     <textarea cols="40" rows="4" asp-for="Message"></textarea>
     <span asp-validation-for="Message"></span>
-    <div><input type="submit" value="Send Message" /></div>
+    <div><input type="submit" value="Send Message"/>
+    </div>
 </form>

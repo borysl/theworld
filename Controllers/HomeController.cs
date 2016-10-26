@@ -28,7 +28,7 @@ namespace TheWorld.Controllers
         [HttpPost]
         public IActionResult Contact(ContactViewModel vm)
         {
-            if (vm.Email.EndsWith("aol.com")) ModelState.AddModelError("Email", "We do not support AOL addresses");
+            if (vm.Email.EndsWith("aol.com")) ModelState.AddModelError("", "We do not support AOL addresses");
             if (ModelState.IsValid)
             {
                 _mailService.SendMail(_config["MailSettings:ToAddress"], vm.Email, $"Message from {vm.Name}", vm.Message);
