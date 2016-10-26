@@ -32,6 +32,7 @@ namespace TheWorld.Controllers
             if (ModelState.IsValid)
             {
                 _mailService.SendMail(_config["MailSettings:ToAddress"], vm.Email, $"Message from {vm.Name}", vm.Message);
+                ViewBag.UserMessage = "Message sent!";
             }
             return View();
         }
