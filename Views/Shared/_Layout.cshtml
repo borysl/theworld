@@ -1,7 +1,4 @@
-﻿
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -16,9 +13,9 @@
         <img src="~/img/user1.jpg" alt="headphoto" class="headshot" />
         <span id="username">Sam Hastings</span>
         <ul class="menu">
-            <li class="active"><a href="~/">Home</a></li>
-            <li><a href="~/Home/About">About</a></li>
-            <li><a href="~/Home/Contact">Contact</a></li>
+            <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Home" asp-action="About">About</a></li>
+            <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
         </ul>
     </div>
     <div id="wrapper">
