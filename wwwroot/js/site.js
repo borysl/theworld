@@ -18,9 +18,9 @@
     $("#sidebarToggle").on("click", function () {
         $sidebarAndWrapper.toggleClass("hide-sidebar");
         if ($sidebarAndWrapper.hasClass("hide-sidebar")) {
-            $(this).find("i").removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-right");
+            $(this).find("i.fa").removeClass("fa-angle-left").addClass("fa-angle-right");
         } else {
-            $(this).find("i").removeClass("glyphicon-chevron-right").addClass("glyphicon-chevron-left");
+            $(this).find("i.fa").removeClass("fa-angle-right").addClass("fa-angle-left");
         }
     });
 })();
