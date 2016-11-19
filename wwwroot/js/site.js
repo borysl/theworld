@@ -13,14 +13,14 @@
         $(this).css("background-color", "");
     });
 
-    var $sidebarAndWrapper = $("#sidebar,#wrapper");
+    var $sidebarAndWrapper = $("#wrapper,#sidebar");
 
     $("#sidebarToggle").on("click", function () {
         $sidebarAndWrapper.toggleClass("hide-sidebar");
         if ($sidebarAndWrapper.hasClass("hide-sidebar")) {
-            $(this).text("Show sidebar");
+            $(this).find("i").removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-right");
         } else {
-            $(this).text("Hide sidebar");
+            $(this).find("i").removeClass("glyphicon-chevron-right").addClass("glyphicon-chevron-left");
         }
     });
 })();
