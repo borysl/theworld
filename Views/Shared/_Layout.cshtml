@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <title>The World - @ViewBag.Title</title>
-
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -20,16 +22,19 @@
     </div>
     <div id="wrapper">
         <div id="main">
-            <button id="sidebarToggle">Hide sidebar</button>
+            <button id="sidebarToggle" class="btn btn-primary">Hide sidebar</button>
 
             @RenderBody()
         </div>
-        <div id="footer">
-            &copy; 2016 The World Ltd.
+        <div id="footer" class="text-primary">
+            <p class="btn-primary">
+                &copy; 2016 The World Ltd.
+            </p>
         </div>
     </div>
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)
     <script type="text/javascript" src="~/js/site.js"></script>
 </body>
