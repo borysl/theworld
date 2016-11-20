@@ -1,17 +1,5 @@
 ﻿/* site.css */
 
-#main {
-    padding: 4px;
-    margin: 0;
-}
-
-#footer {
-    padding: 8px 5px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 .headshot {
     max-width: 50px;
     border: 1px solid #222;
