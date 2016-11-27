@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using TheWorld.Models;
 using TheWorld.Services;
 
 namespace TheWorld
@@ -39,6 +40,9 @@ namespace TheWorld
             {
                 services.AddScoped<IMailService, DebugMailService>();
             }
+
+            services.AddDbContext<WorldContext>();
+
             services.AddMvc();
         }
 
