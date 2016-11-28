@@ -43,6 +43,9 @@ namespace TheWorld
 
             services.AddDbContext<WorldContext>();
 
+            services.AddScoped<IWorldRepository, WorldRepository>();
+            // services.AddScoped<IWorldRepository, MockedWorldRepository>();
+
             services.AddTransient<WorldContextSeedData>();
 
             services.AddMvc();

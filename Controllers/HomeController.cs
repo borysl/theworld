@@ -11,17 +11,18 @@ namespace TheWorld.Controllers
     {
         private readonly IMailService _mailService;
         private readonly IConfigurationRoot _config;
-        private readonly WorldContext _context;
+        private readonly IWorldRepository _repository;
 
-        public HomeController(IMailService mailService, IConfigurationRoot config, WorldContext context)
+        public HomeController(IMailService mailService, IConfigurationRoot config, IWorldRepository repository)
         {
             _mailService = mailService;
             _config = config;
-            _context = context;
+            _repository = repository;
         }
         public IActionResult Index()
         {
-            var data = _context.Trips.ToList();
+            var data = _repository.GetAllTrips();
+
             return View(data);
         }
 
