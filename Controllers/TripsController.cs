@@ -9,11 +9,17 @@ namespace TheWorld.Controllers
 {
     public class TripsController : Controller
     {
+        private readonly IWorldRepository _repository;
+
+        public TripsController(IWorldRepository repository)
+        {
+            _repository = repository;
+        }
+
         [HttpGet("api/trips")]
         public IActionResult Get()
         {
-            if (true) return BadRequest("Bad request");
-            return Ok(new Trip {Name = "My Trip"});
+            return Ok(_repository.GetAllTrips());
         }
     }
 }
