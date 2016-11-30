@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TheWorld.Models;
+using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers
 {
@@ -24,13 +25,13 @@ namespace TheWorld.Controllers
         }
 
         [HttpPost("")]
-        public IActionResult Post([FromBody]Trip theTrip)
+        public IActionResult Post([FromBody]TripViewModel theTrip)
         {
             if (ModelState.IsValid)
             {
                 return Created($"api/trips/{theTrip.Name}", theTrip);
             }
-            return BadRequest(true);
+            return BadRequest(ModelState);
         }
     }
 }
