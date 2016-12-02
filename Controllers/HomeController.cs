@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -22,24 +24,28 @@ namespace TheWorld.Controllers
             _repository = repository;
             _logger = logger;
         }
+
+        [Authorize]
+        public IActionResult Trips()
+        {
+            var data = _repository.GetAllTrips();
+
+            return View(data);
+        }
+
         public IActionResult Index()
         {
-            try
-            {
-                var data = _repository.GetAllTrips();
-
-                return View(data);
-            }
-            catch (System.Exception ex)
-            {
-                _logger.LogError($"Failed to get trips in Index page: {ex.Message}");
-                return Redirect("/error");
-            }
+            return View();
         }
 
         public IActionResult Contact()
         {
             return View();
+        }
+
+        public IActionResult Trap()
+        {
+            throw new InvalidOperationException("Shysh vam!");
         }
 
         [HttpPost]
