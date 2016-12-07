@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -60,7 +61,13 @@ namespace TheWorld
 
             services.AddLogging();
 
-            services.AddMvc();
+            services.AddMvc(config =>
+            {
+                if (_env.IsProduction())
+                {
+                    config.Filters.Add(new RequireHttpsAttribute());
+                }
+            });
             // Theoretically this should bring default names to the camel case in JSON, however it works even without it.
             // .AddJsonOptions(_ => _.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
             // .AddJsonOptions(_ => _.SerializerSettings.ContractResolver = new DefaultContractResolver());
