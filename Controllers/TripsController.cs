@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TheWorld.Models;
 using TheWorld.ViewModels;
@@ -9,6 +10,7 @@ using TheWorld.ViewModels;
 namespace TheWorld.Controllers
 {
     [Route("api/trips")]
+    [Authorize]
     public class TripsController : Controller
     {
         private readonly IWorldRepository _repository;
