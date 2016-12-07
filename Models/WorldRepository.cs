@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheWorld.Models
 {
@@ -19,6 +20,11 @@ namespace TheWorld.Models
         {
             _logger.LogInformation("Getting all trips from the database.");
             return _context.Trips.ToList();
+        }
+
+        public IEnumerable<Trip> GetTripsByUsername(string userName)
+        {
+            return _context.Trips.Include(_ => _.Stops).Where(t => t.UserName == userName);
         }
     }
 }

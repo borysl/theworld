@@ -23,7 +23,7 @@ namespace TheWorld.Controllers
         [HttpGet("")]
         public IActionResult Get()
         {
-            return Ok(_repository.GetAllTrips());
+            return Ok(_repository.GetTripsByUsername(this.User.Identity.Name));
         }
 
         [HttpPost("")]
