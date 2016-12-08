@@ -19,7 +19,8 @@
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.1"
-    }
+    },
+    "AutoMapper": "5.2.0" 
   },
 
   "tools": {

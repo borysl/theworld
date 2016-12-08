@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using TheWorld.Models;
 using TheWorld.Services;
+using TheWorld.ViewModels;
 
 namespace TheWorld
 {
@@ -94,6 +96,11 @@ namespace TheWorld
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
             WorldContextSeedData seeder, ILoggerFactory factory)
         {
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<TripViewModel, Trip>()
+                .ForMember(dest => dest.DateCreated, _ => _.MapFrom(src => src.Created));
+            });
 
             if (_env.IsDevelopment())
             {
