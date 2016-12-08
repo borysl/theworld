@@ -32,7 +32,7 @@ namespace TheWorld.Controllers
         {
             if (ModelState.IsValid)
             {
-                Trip newTrip = CreateTripFromTheViewMode(theTrip);
+                var newTrip = Mapper.Map<Trip>(theTrip);
 
                 newTrip.UserName = User.Identity.Name;
 
@@ -45,11 +45,6 @@ namespace TheWorld.Controllers
                 }
             }
             return BadRequest(ModelState);
-        }
-
-        private Trip CreateTripFromTheViewMode(TripViewModel theTrip)
-        {
-            return Mapper.Map<Trip>(theTrip);
         }
     }
 }

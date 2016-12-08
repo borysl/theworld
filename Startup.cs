@@ -98,8 +98,7 @@ namespace TheWorld
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<TripViewModel, Trip>()
-                .ForMember(dest => dest.DateCreated, _ => _.MapFrom(src => src.Created));
+                config.CreateMap<TripViewModel, Trip>();
             });
 
             if (_env.IsDevelopment())
