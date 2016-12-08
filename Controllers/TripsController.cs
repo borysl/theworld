@@ -27,13 +27,32 @@ namespace TheWorld.Controllers
         }
 
         [HttpPost("")]
-        public IActionResult Post([FromBody]TripViewModel theTrip)
+        public async Task<IActionResult> Post([FromBody]TripViewModel theTrip)
         {
             if (ModelState.IsValid)
             {
-                return Created($"api/trips/{theTrip.Name}", theTrip);
+                Trip newTrip = CreateTripFromTheViewMode(theTrip);
+
+                newTrip.UserName = User.Identity.Name;
+
+                _repository.AddTrip(newTrip);
+
+                var returnCode = await _repository.SaveChangesAsync();
+                if (returnCode == 1)
+                {
+                    return Created($"api/trips/{theTrip.Name}", theTrip);
+                }
             }
             return BadRequest(ModelState);
+        }
+
+        private Trip CreateTripFromTheViewMode(TripViewModel theTrip)
+        {
+            return new Trip
+            {
+                DateCreated = theTrip.Created,
+                Name = theTrip.Name
+            };
         }
     }
 }

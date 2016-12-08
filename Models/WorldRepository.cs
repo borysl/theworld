@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,16 @@ namespace TheWorld.Models
         public IEnumerable<Trip> GetTripsByUsername(string userName)
         {
             return _context.Trips.Include(_ => _.Stops).Where(t => t.UserName == userName);
+        }
+
+        public void AddTrip(Trip newTrip)
+        {
+            _context.Trips.Add(newTrip);
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }
